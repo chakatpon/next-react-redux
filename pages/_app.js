@@ -16,6 +16,7 @@ class MyApp extends App {
   //
   static async getInitialProps({Component, ctx}) {
     // calls page's `getInitialProps` and fills `appProps.pageProps`
+    // ctx.store.dispatch({ type: 'SET_LANGUAGE', payload: "thai"})
     return {
       pageProps: {
           // Call page-level getInitialProps
@@ -26,7 +27,7 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props
-    console.log("this is page props : ", pageProps)
+    
     return (
       <Provider store={initStore()}>
         <Layout>
@@ -39,7 +40,7 @@ class MyApp extends App {
 }
 
 const mapStateToProps = state => ({
-  lang: state.lang
+  language: state.language
 })
 
 export default withRedux(initStore, mapStateToProps)(MyApp)

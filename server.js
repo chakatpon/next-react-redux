@@ -1,5 +1,6 @@
 const next = require("next")
 const express = require('express')
+const cookieParser = require('cookie-parser')
 
 const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 3005
@@ -8,6 +9,8 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
     const server = express();
+
+    server.use(cookieParser())
     server.get('*', (req, res) => {
         console.log('=======================')
         console.log("this is request : ", req)

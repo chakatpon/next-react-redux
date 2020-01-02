@@ -30,7 +30,7 @@ module.exports = withCss(
     },
     exportPathMap: function () {
       return {
-        '/': { page: '/Landing' }
+        '/': { page: '/Login' }
       }
     },
     devIndicators: {
