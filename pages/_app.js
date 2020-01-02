@@ -16,7 +16,6 @@ class MyApp extends App {
   //
   static async getInitialProps({Component, ctx}) {
     // calls page's `getInitialProps` and fills `appProps.pageProps`
-    // ctx.store.dispatch({ type: 'SET_LANGUAGE', payload: "thai"})
     return {
       pageProps: {
           // Call page-level getInitialProps

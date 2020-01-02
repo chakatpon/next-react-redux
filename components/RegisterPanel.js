@@ -1,13 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { setLanguage } from "../redux/actions/langActions";
+import { getPosts } from "../redux/actions/fooActions";
 
 class RegisterPanel extends React.Component {
-
+  
   componentDidMount() {
     console.log("register panel did mount : ", this.props)
   }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const fooResult = this.props.getPosts();
+    console.log("foo result : ", fooResult)
+};
 
   render() {
     console.log("register panel props : ", this.props)
@@ -52,7 +58,7 @@ class RegisterPanel extends React.Component {
             />
           </div>
         </div>
-        <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+        <button onClick={(e) => this.handleSubmit(e)} class="btn btn-primary mb-2">Confirm identity</button>
       </form>
     );
   }
@@ -62,4 +68,4 @@ const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps, { setLanguage })(RegisterPanel);
+export default connect(mapStateToProps, { getPosts })(RegisterPanel);
